@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SammyArtz Glasses | Elegantly Engraved</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --green: #0F2D23;
+            --green-dark: #081C16;
+            --green-light: #173C30;
+            --gold: #D4AF37;
+            --gold-light: #E7CB70;
+            --cream: #F7F3EA;
+            --white: #FFFFFF;
+            --black: #161616;
+            --muted: #77736B;
+
+            --serif: "Cormorant Garamond", serif;
+            --sans: "Inter", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--cream);
+            color: var(--black);
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navbar {
+            height: 88px;
+            background: var(--green);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-family: var(--serif);
+            font-size: 22px;
+        }
+
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 21px;
+            letter-spacing: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-order {
+            border: 1px solid var(--gold);
+            padding: 12px 20px;
+            color: var(--gold);
+            transition: 0.3s ease;
+        }
+
+        .nav-order:hover {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 82vh;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(5, 20, 15, 0.92) 0%,
+                    rgba(5, 20, 15, 0.65) 50%,
+                    rgba(5, 20, 15, 0.25) 100%
+                ),
+                url("https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=2000&q=85")
+                center/cover no-repeat;
+
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .eyebrow {
+            color: var(--gold-light);
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: clamp(55px, 7vw, 100px);
+            line-height: 0.88;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero p {
+            max-width: 520px;
+            font-size: 15px;
+            line-height: 1.9;
+            color: rgba(255,255,255,0.78);
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 28px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s ease;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-light);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        .hero-products {
+            margin-top: 45px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.55);
+        }
+
+        /* =========================
+           COLLECTIONS
+        ========================= */
+
+        .section {
+            padding: 100px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 60px;
+        }
+
+        .section-heading .eyebrow {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .section-heading h2 {
+            font-family: var(--serif);
+            font-size: clamp(40px, 5vw, 62px);
+            font-weight: 500;
+            color: var(--green);
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .collections {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .collection-card {
+            position: relative;
+            height: 480px;
+            overflow: hidden;
+            background: var(--green);
+        }
+
+        .collection-card img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .collection-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .collection-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(5, 20, 15, 0.92),
+                rgba(5, 20, 15, 0.05) 65%
+            );
+            display: flex;
+            align-items: flex-end;
+            padding: 28px;
+        }
+
+        .collection-overlay h3 {
+            font-family: var(--serif);
+            color: var(--white);
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .collection-overlay p {
+            color: rgba(255,255,255,0.7);
+            font-size: 11px;
+        }
+
+        /* =========================
+           SIGNATURE
+        ========================= */
+
+        .signature {
+            background: var(--green);
+            color: var(--white);
+            padding: 110px 8%;
+        }
+
+        .signature-inner {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .signature .eyebrow {
+            color: var(--gold);
+        }
+
+        .signature h2 {
+            font-family: var(--serif);
+            font-size: clamp(48px, 5vw, 70px);
+            line-height: 0.95;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .signature h2 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .signature p {
+            color: rgba(255,255,255,0.68);
+            font-size: 14px;
+            line-height: 1.9;
+            max-width: 500px;
+        }
+
+        .features {
+            display: grid;
+            gap: 30px;
+        }
+
+        .feature {
+            border-top: 1px solid rgba(212,175,55,0.4);
+            padding-top: 20px;
+        }
+
+        .feature-number {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .feature h3 {
+            font-family: var(--serif);
+            font-size: 28px;
+            font-weight: 500;
+            margin: 5px 0;
+        }
+
+        .feature p {
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           BRING YOUR GLASS
+        ========================= */
+
+        .bring-glass {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .bring-image {
+            background:
+                url("https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1400&q=85")
+                center/cover;
+        }
+
+        .bring-content {
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            padding: 80px;
+        }
+
+        .bring-content-inner {
+            max-width: 500px;
+        }
+
+        .bring-content .eyebrow {
+            color: var(--gold);
+        }
+
+        .bring-content h2 {
+            font-family: var(--serif);
+            font-size: clamp(45px, 5vw, 68px);
+            line-height: 0.95;
+            color: var(--green);
+            margin-bottom: 25px;
+        }
+
+        .bring-content p {
+            color: var(--muted);
+            line-height: 1.9;
+            font-size: 14px;
+            margin-bottom: 35px;
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products {
+            background: #eee9de;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--cream);
+            border: 1px solid rgba(15,45,35,0.08);
+            transition: 0.3s ease;
+        }
+
+        .product-card:hover {
+            border-color: rgba(212,175,55,0.7);
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 330px;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .product-image img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-family: var(--serif);
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--green);
+        }
+
+        .product-info p {
+            color: var(--muted);
+            font-size: 11px;
+            margin: 5px 0 15px;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .view-product {
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--green);
+        }
+
+        /* =========================
+           OCCASIONS
+        ========================= */
+
+        .occasions {
+            background: var(--green);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .occasions .section-heading h2 {
+            color: var(--white);
+        }
+
+        .occasions .section-heading p {
+            color: rgba(255,255,255,0.65);
+        }
+
+        .occasion-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            border-top: 1px solid rgba(212,175,55,0.4);
+            border-bottom: 1px solid rgba(212,175,55,0.4);
+        }
+
+        .occasion {
+            padding: 35px 15px;
+            border-right: 1px solid rgba(212,175,55,0.25);
+        }
+
+        .occasion:last-child {
+            border-right: none;
+        }
+
+        .occasion h3 {
+            font-family: var(--serif);
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .occasion p {
+            font-size: 10px;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.6;
+        }
+
+        /* =========================
+           CUSTOM CTA
+        ========================= */
+
+        .custom-cta {
+            padding: 120px 7%;
+            text-align: center;
+            background: var(--cream);
+        }
+
+        .custom-cta h2 {
+            font-family: var(--serif);
+            font-size: clamp(50px, 7vw, 90px);
+            color: var(--green);
+            font-weight: 500;
+            line-height: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .custom-cta p {
+            color: var(--muted);
+            max-width: 550px;
+            margin: 0 auto 35px;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--green-dark);
+            color: var(--white);
+            padding: 70px 7% 30px;
+            border-top: 1px solid rgba(212,175,55,0.4);
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 60px;
+        }
+
+        .footer-brand h2 {
+            font-family: var(--serif);
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.5);
+            max-width: 300px;
+            line-height: 1.8;
+            font-size: 12px;
+        }
+
+        footer h3 {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 12px;
+            color: rgba(255,255,255,0.55);
+            font-size: 12px;
+        }
+
+        footer li:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255,255,255,0.35);
+            font-size: 10px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .collections,
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .signature-inner,
+            .bring-glass {
+                grid-template-columns: 1fr;
+            }
+
+            .bring-image {
+                min-height: 500px;
+            }
+
+            .occasion-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .occasion:nth-child(2),
+            .occasion:nth-child(4) {
+                border-right: none;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 0 5%;
+                height: 75px;
+            }
+
+            .logo-text {
+                font-size: 16px;
+                letter-spacing: 2px;
+            }
+
+            .logo-mark {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hero {
+                min-height: 75vh;
+                padding: 60px 6%;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .section {
+                padding: 75px 5%;
+            }
+
+            .collections,
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .collection-card {
+                height: 430px;
+            }
+
+            .signature {
+                padding: 80px 6%;
+            }
+
+            .signature-inner {
+                gap: 60px;
+            }
+
+            .bring-content {
+                padding: 60px 7%;
+            }
+
+            .bring-image {
+                min-height: 400px;
+            }
+
+            .occasion-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .occasion {
+                border-right: none;
+                border-bottom: 1px solid rgba(212,175,55,0.2);
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        .logo-image {
+            display: block;
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+        }
+
+        .footer-logo {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            display: block;
+            width: 110px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo" aria-label="SammyArtz home">
+            <img src="S&A LOGO CIRCULAR.png" alt="SammyArtz" class="logo-image">
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="custom.html">Custom Engraving</a>
+            <a href="about.html">About</a>
+            <a href="index.html#contact">Contact</a>
+
+            <a href="custom.html" class="nav-order">
+                Order
+            </a>
+        </nav>
+
+        <button class="menu-btn">☰</button>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Handcrafted Glassware
+                </div>
+
+                <h1>
+                    Make Every Glass
+                    <span>Personal.</span>
+                </h1>
+
+                <p>
+                    Beautifully engraved glassware created for
+                    celebrations, meaningful gifts and moments
+                    worth remembering.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="shop.html" class="btn btn-gold">
+                        Explore Collection
+                    </a>
+
+                    <a href="custom.html" class="btn btn-outline">
+                        Custom Engraving
+                    </a>
+
+                </div>
+
+                <div class="hero-products">
+                    WINE GLASSES &nbsp;·&nbsp;
+                    CHAMPAGNE &nbsp;·&nbsp;
+                    WHISKEY &nbsp;·&nbsp;
+                    TUMBLERS
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             COLLECTIONS
+        ========================== -->
+
+        <section class="section" id="collections">
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    The Collection
+                </div>
+
+                <h2>
+                    Crafted For Every Occasion
+                </h2>
+
+                <p>
+                    Discover timeless glassware made even more
+                    special with personal engraving.
+                </p>
+
+            </div>
+
+            <div class="collections">
+
+                <a href="#" class="collection-card">
+
+                    <img src="wine glass (3).jpeg" alt="Wine glasses">
+
+                    <div class="collection-overlay">
+                        <div>
+                            <h3>Wine Glasses</h3>
+                            <p>Elegant. Personal. Timeless.</p>
+                        </div>
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="collection-card">
+
+                    <img src="whiskey glass.jpeg" alt="Whiskey glass">
+
+                    <div class="collection-overlay">
+                        <div>
+                            <h3>Whiskey Glasses</h3>
+                            <p>Made for memorable moments.</p>
+                        </div>
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="collection-card">
+
+                    <img src="champagane glass.jpeg" alt="Champagne glasses">
+
+                    <div class="collection-overlay">
+                        <div>
+                            <h3>Champagne</h3>
+                            <p>Celebrate something special.</p>
+                        </div>
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="collection-card">
+
+                    <img src="glassware (13).jpeg" alt="Custom tumblers">
+
+                    <div class="collection-overlay">
+                        <div>
+                            <h3>Custom Tumblers</h3>
+                            <p>Your glass. Your story.</p>
+                        </div>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SIGNATURE
+        ========================== -->
+
+        <section class="signature" id="about">
+
+            <div class="signature-inner">
+
+                <div>
+
+                    <div class="eyebrow">
+                        The SammyArtz Difference
+                    </div>
+
+                    <h2>
+                        More Than
+                        <span>Glassware.</span>
+                    </h2>
+
+                    <p>
+                        At SammyArtz Glasses, ordinary glassware becomes
+                        something personal. Every piece is carefully
+                        engraved to create a keepsake that carries a
+                        name, a date, a message or a memory.
+                    </p>
+
+                </div>
+
+
+                <div class="features">
+
+                    <div class="feature">
+                        <div class="feature-number">01</div>
+                        <h3>Handcrafted</h3>
+                        <p>
+                            Every engraving receives careful attention
+                            to detail.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-number">02</div>
+                        <h3>Personalized</h3>
+                        <p>
+                            Names, dates, messages and custom designs
+                            made especially for you.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-number">03</div>
+                        <h3>Memorable</h3>
+                        <p>
+                            Pieces designed to become part of the
+                            moments you'll remember.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BRING YOUR OWN GLASS
+        ========================== -->
+
+        <section class="bring-glass" id="custom">
+
+            <div class="bring-image"></div>
+
+            <div class="bring-content">
+
+                <div class="bring-content-inner">
+
+                    <div class="eyebrow">
+                        Custom Engraving
+                    </div>
+
+                    <h2>
+                        Have A Glass Already?
+                        <br>
+                        <em>Bring It To Us.</em>
+                    </h2>
+
+                    <p>
+                        Have a favourite glass, bottle, tumbler or
+                        special piece you'd like personalized?
+
+                        Bring it to SammyArtz and let us give it
+                        a completely new identity.
+                    </p>
+
+                    <a href="custom.html" class="btn btn-gold">
+                        Start Custom Order
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PRODUCTS
+        ========================== -->
+
+        <section class="section products">
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    Customer Favourites
+                </div>
+
+                <h2>
+                    Best Sellers
+                </h2>
+
+                <p>
+                    Some of the pieces our customers love most.
+                </p>
+
+            </div>
+
+
+            <div class="product-grid">
+
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <img src="wine glass.jpeg" alt="Engraved wine glass">
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>Engraved Wine Glass</h3>
+
+                        <p>Personalized glassware</p>
+
+                        <div class="product-bottom">
+                            <span class="price">KES —</span>
+                            <a href="#" class="view-product">View Details →</a>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <img src="whiskeyglass.jpeg">
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>Whiskey Glass</h3>
+
+                        <p>Custom engraved</p>
+
+                        <div class="product-bottom">
+                            <span class="price">KES —</span>
+                            <a href="#" class="view-product">View Details →</a>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <img src="champagane glass.jpeg">
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>Champagne Glass</h3>
+
+                        <p>Elegant personalized gift</p>
+
+                        <div class="product-bottom">
+                            <span class="price">KES —</span>
+                            <a href="#" class="view-product">View Details →</a>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <img src="IMG_8784.JPG">
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>Custom Tumbler</h3>
+
+                        <p>Made uniquely yours</p>
+
+                        <div class="product-bottom">
+                            <span class="price">KES —</span>
+                            <a href="#" class="view-product">View Details →</a>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             OCCASIONS
+        ========================== -->
+
+        <section class="section occasions">
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    Made For The Moment
+                </div>
+
+                <h2>
+                    Life's Special Occasions
+                </h2>
+
+                <p>
+                    Give someone a glass they'll remember long after
+                    the celebration is over.
+                </p>
+
+            </div>
+
+
+            <div class="occasion-grid">
+
+                <div class="occasion">
+                    <h3>Weddings</h3>
+                    <p>Personalized pieces for the happy couple.</p>
+                </div>
+
+                <div class="occasion">
+                    <h3>Birthdays</h3>
+                    <p>A gift that's genuinely personal.</p>
+                </div>
+
+                <div class="occasion">
+                    <h3>Anniversaries</h3>
+                    <p>Celebrate the story you've built together.</p>
+                </div>
+
+                <div class="occasion">
+                    <h3>Corporate</h3>
+                    <p>Make your next gift unforgettable.</p>
+                </div>
+
+                <div class="occasion">
+                    <h3>Just Because</h3>
+                    <p>Sometimes you don't need a reason.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CUSTOM CTA
+        ========================== -->
+
+        <section class="custom-cta" id="order">
+
+            <div class="eyebrow">
+                Your Idea. Our Craft.
+            </div>
+
+            <h2>
+                Make It<br>
+                Personal.
+            </h2>
+
+            <p>
+                Have something special in mind?
+                Tell us what you'd like engraved and
+                we'll help bring your idea to life.
+            </p>
+
+            <a href="custom.html" class="btn btn-gold">
+                Start A Custom Order
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer id="contact">
+
+        <div class="footer-top">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="footer-logo" aria-label="SammyArtz home">
+                    <img src="S&A LOGO CIRCULAR.png" alt="SammyArtz">
+                </a>
+
+                <p>
+                    Elegantly engraved glassware created to turn
+                    ordinary moments into lasting memories.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Shop</h3>
+
+                <ul>
+                    <li><a href="#">Wine Glasses</a></li>
+                    <li><a href="#">Champagne</a></li>
+                    <li><a href="#">Whiskey Glasses</a></li>
+                    <li><a href="#">Tumblers</a></li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>Explore</h3>
+
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Custom Engraving</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>Connect</h3>
+
+                <ul>
+                    <li><a href="https://wa.me/+254723178161">WhatsApp: +254 723 178 161</a></li>
+                    <li><a href="https://www.instagram.com/sammyartz35?stkn=bGNnZnpwbGJhb3Fq" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="#">TikTok</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 SammyArtz Glasses
+            </span>
+
+            <span>
+                Elegantly Engraved. Memories Elevated.
+            </span>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
+
+

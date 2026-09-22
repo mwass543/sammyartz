@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop | SammyArtz Glasses</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --green: #0F2D23;
+            --green-dark: #081C16;
+            --gold: #D4AF37;
+            --gold-light: #E7CB70;
+            --cream: #F7F3EA;
+            --white: #ffffff;
+            --black: #171717;
+            --muted: #77736B;
+
+            --serif: "Cormorant Garamond", serif;
+            --sans: "Inter", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--black);
+            font-family: var(--sans);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navbar {
+            height: 88px;
+            background: var(--green);
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            border-bottom: 1px solid rgba(212,175,55,.35);
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: var(--serif);
+            font-size: 18px;
+            color: var(--gold);
+        }
+
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 20px;
+            letter-spacing: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            transition: .3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: var(--gold);
+        }
+
+        .nav-order {
+            border: 1px solid var(--gold);
+            padding: 12px 20px;
+            color: var(--gold);
+        }
+
+        .nav-order:hover {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        /* =========================
+           PAGE HERO
+        ========================= */
+
+        .shop-hero {
+            background: var(--green);
+            color: white;
+
+            text-align: center;
+
+            padding: 90px 20px 100px;
+
+            border-bottom: 1px solid rgba(212,175,55,.35);
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+        .shop-hero h1 {
+            font-family: var(--serif);
+            font-weight: 500;
+
+            font-size: clamp(55px, 7vw, 90px);
+
+            line-height: .9;
+
+            margin-bottom: 25px;
+        }
+
+        .shop-hero h1 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .shop-hero p {
+            max-width: 600px;
+            margin: auto;
+
+            color: rgba(255,255,255,.65);
+
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           CATEGORY NAVIGATION
+        ========================= */
+
+        .categories {
+            background: var(--cream);
+
+            padding: 30px 6%;
+
+            border-bottom: 1px solid rgba(15,45,35,.1);
+
+            position: sticky;
+            top: 88px;
+            z-index: 50;
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+        }
+
+        .category {
+            border: 1px solid rgba(15,45,35,.25);
+
+            padding: 11px 17px;
+
+            font-size: 10px;
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
+
+            color: var(--green);
+
+            cursor: pointer;
+
+            transition: .3s ease;
+        }
+
+        .category:hover,
+        .category.active {
+            background: var(--green);
+            color: var(--gold);
+
+            border-color: var(--green);
+        }
+
+        /* =========================
+           SHOP
+        ========================= */
+
+        .shop-section {
+            padding: 90px 7%;
+        }
+
+        .shop-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+
+            margin-bottom: 45px;
+        }
+
+        .shop-heading h2 {
+            font-family: var(--serif);
+            font-size: 50px;
+            font-weight: 500;
+
+            color: var(--green);
+        }
+
+        .shop-heading p {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* =========================
+           PRODUCT GRID
+        ========================= */
+
+        .product-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #fffdf8;
+
+            border: 1px solid rgba(15,45,35,.08);
+
+            transition: .35s ease;
+
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+
+            border-color:
+                rgba(212,175,55,.75);
+
+            box-shadow:
+                0 15px 40px rgba(15,45,35,.08);
+        }
+
+        .product-image {
+            height: 360px;
+
+            background: #e8e3d9;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .product-image img {
+            height: 100%;
+            object-fit: cover;
+            cursor: zoom-in;
+
+            transition: .6s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .wine-carousel {
+            height: 100%;
+            position: relative;
+        }
+
+        .wine-carousel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: zoom-in;
+            pointer-events: none;
+            transition: opacity .35s ease;
+        }
+
+        .wine-carousel-image.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .image-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: none;
+            place-items: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, .82);
+        }
+
+        .image-lightbox.open {
+            display: grid;
+        }
+
+        .image-lightbox img {
+            max-width: min(900px, 100%);
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+            border: 0;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            font-size: 38px;
+            line-height: 1;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+            width: 38px;
+            height: 38px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(15, 45, 35, .8);
+            color: #fff;
+            cursor: pointer;
+            font-size: 24px;
+            line-height: 1;
+            transform: translateY(-50%);
+            transition: background .2s ease;
+        }
+
+        .carousel-control:hover,
+        .carousel-control:focus-visible {
+            background: var(--gold);
+            outline: none;
+        }
+
+        .carousel-control.previous {
+            left: 12px;
+        }
+
+        .carousel-control.next {
+            right: 12px;
+        }
+
+        .engraved-tag {
+            position: absolute;
+
+            top: 15px;
+            left: 15px;
+
+            background: var(--green);
+
+            color: var(--gold);
+
+            padding: 8px 12px;
+
+            font-size: 8px;
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-info h3 {
+            font-family: var(--serif);
+
+            font-size: 27px;
+
+            font-weight: 500;
+
+            color: var(--green);
+
+            margin-bottom: 5px;
+        }
+
+        .product-info p {
+            color: var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+            margin-bottom: 18px;
+        }
+
+        .product-bottom {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price {
+            color: var(--gold);
+
+            font-size: 13px;
+        }
+
+        .details {
+            color: var(--green);
+
+            font-size: 9px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            border-bottom:
+                1px solid var(--gold);
+
+            padding-bottom: 4px;
+        }
+
+        /* =========================
+           CUSTOM ENGRAVING CTA
+        ========================= */
+
+        .custom-section {
+            background: var(--green);
+
+            color: white;
+
+            padding: 110px 8%;
+
+            text-align: center;
+        }
+
+        .custom-section h2 {
+            font-family: var(--serif);
+
+            font-size: clamp(50px, 6vw, 75px);
+
+            font-weight: 500;
+
+            line-height: .9;
+
+            margin-bottom: 25px;
+        }
+
+        .custom-section h2 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .custom-section p {
+            max-width: 580px;
+
+            margin: 0 auto 35px;
+
+            color: rgba(255,255,255,.65);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+        .custom-btn {
+            display: inline-block;
+
+            padding: 15px 28px;
+
+            background: var(--gold);
+
+            color: var(--green);
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            transition: .3s ease;
+        }
+
+        .custom-btn:hover {
+            background: var(--gold-light);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--green-dark);
+
+            color: white;
+
+            padding: 65px 7% 25px;
+        }
+
+        .footer-content {
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 50px;
+        }
+
+        .footer-brand h2 {
+            font-family: var(--serif);
+
+            color: var(--gold);
+
+            font-size: 30px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+
+            color: rgba(255,255,255,.5);
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+        footer h3 {
+            color: var(--gold);
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+        footer li {
+            list-style: none;
+
+            margin-bottom: 12px;
+
+            font-size: 11px;
+
+            color: rgba(255,255,255,.5);
+        }
+
+        footer li:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.08);
+
+            padding-top: 22px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: rgba(255,255,255,.3);
+
+            font-size: 9px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width: 1000px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media(max-width: 600px) {
+
+            .navbar {
+                height: 75px;
+                padding: 0 5%;
+            }
+
+            .logo-text {
+                font-size: 16px;
+            }
+
+            .categories {
+                top: 75px;
+            }
+
+            .category-list {
+                justify-content: flex-start;
+
+                overflow-x: auto;
+
+                flex-wrap: nowrap;
+
+                padding-bottom: 5px;
+            }
+
+            .category {
+                white-space: nowrap;
+            }
+
+            .shop-section {
+                padding: 65px 5%;
+            }
+
+            .shop-heading {
+                display: block;
+            }
+
+            .shop-heading h2 {
+                font-size: 45px;
+                margin-bottom: 8px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 400px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+        }
+
+        .logo-image {
+            display: block;
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+        }
+
+        .footer-logo {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            display: block;
+            width: 110px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo" aria-label="SammyArtz home">
+
+        <img src="S&A LOGO CIRCULAR.png" alt="SammyArtz" class="logo-image">
+
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="shop.html" class="active">
+            Shop
+        </a>
+
+        <a href="custom.html">
+            Custom Engraving
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="index.html#contact">
+            Contact
+        </a>
+
+        <a href="https://wa.me/+254723178161"
+           class="nav-order">
+
+            Order
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     SHOP HERO
+========================= -->
+
+<section class="shop-hero">
+
+    <div class="eyebrow">
+        The SammyArtz Collection
+    </div>
+
+    <h1>
+        Find Your
+        <span>Perfect Glass.</span>
+    </h1>
+
+    <p>
+        Every piece in our collection is carefully selected
+        and beautifully engraved to make it uniquely yours.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     CATEGORY FILTER
+========================= -->
+
+<section class="categories">
+
+    <div class="category-list">
+
+        <button class="category active"
+                data-category="all">
+
+            Shop All
+
+        </button>
+
+        <button class="category"
+                data-category="wine">
+
+            Wine Glasses
+
+        </button>
+
+        <button class="category"
+                data-category="whiskey">
+
+            Whiskey Glasses
+
+        </button>
+
+        <button class="category"
+                data-category="champagne">
+
+            Champagne
+
+        </button>
+
+        <button class="category"
+                data-category="shot">
+
+            Shot Glasses
+
+        </button>
+
+        <button class="category"
+                data-category="tumbler">
+
+            Custom Tumblers
+
+        </button>
+
+        <button class="category"
+                data-category="bowl">
+
+            Bowls
+
+        </button>
+
+        <button class="category"
+                data-category="jug">
+
+            Jugs
+
+        </button>
+
+        <button class="category"
+                data-category="bottle">
+
+            Glass Bottles
+
+        </button>
+
+        <button class="category"
+                data-category="cocktail">
+
+            Cocktail Glasses
+
+        </button>
+
+        <button class="category"
+                data-category="glass-tumbler">
+
+            Glass Tumblers
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<section class="shop-section">
+
+    <div class="shop-heading">
+
+        <div>
+
+            <div class="eyebrow">
+                Explore
+            </div>
+
+            <h2>
+                Our Glassware
+            </h2>
+
+        </div>
+
+        <p>
+            All pieces can be personalized with engraving.
+        </p>
+
+    </div>
+
+
+
+    <div class="product-grid">
+
+
+        <!-- WINE -->
+
+        <article class="product-card"
+                 data-category="wine">
+
+            <div class="product-image">
+
+                <span class="engraved-tag">
+                    Engraved
+                </span>
+
+                <div class="wine-carousel" aria-label="Wine glass photo gallery">
+                    <img class="wine-carousel-image active"
+                         src="wine glass.jpeg"
+                         alt="Engraved wine glass, photo 1">
+                    <img class="wine-carousel-image"
+                         src="wine glass (3).jpeg"
+                         alt="Engraved wine glass, photo 2">
+
+                    <button class="carousel-control previous" type="button" aria-label="Show previous wine glass photo">‹</button>
+                    <button class="carousel-control next" type="button" aria-label="Show next wine glass photo">›</button>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Wine Glasses
+                </h3>
+
+                <p>
+                    Elegant wine glasses personalized
+                    with your chosen engraving.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        KES 2000 
+                    </span>
+
+                    <a href="product.html"
+                       class="details">
+
+                        View Details →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- WHISKEY -->
+
+        <article class="product-card"
+                 data-category="whiskey">
+
+            <div class="product-image">
+
+                <span class="engraved-tag">
+                    Engraved
+                </span>
+
+                <img
+                    src="whiskey glass.jpeg"
+                    alt="Engraved whiskey glass">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Whiskey Glasses
+                </h3>
+
+                <p>
+                    Classic whiskey glasses engraved
+                    with names, initials or designs.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        KES 2000
+                    </span>
+
+                    <a href="product.html"
+                       class="details">
+
+                        View Details →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CHAMPAGNE -->
+
+        <article class="product-card"
+                 data-category="champagne">
+
+            <div class="product-image">
+
+                <span class="engraved-tag">
+                    Engraved
+                </span>
+
+                <img
+                    src="champagane glass.jpeg"
+                    alt="Engraved champagne glass">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Champagne Glasses
+                </h3>
+
+                <p>
+                    Elegant personalized champagne
+                    glasses for celebrations.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        KES —2500
+                    </span>
+
+                    <a href="product.html"
+                       class="details">
+
+                        View Details →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- SHOT -->
+
+        <article class="product-card"
+                 data-category="shot">
+
+            <div class="product-image">
+
+                <span class="engraved-tag">
+                    Engraved
+                </span>
+
+                <img
+                    src="shot glass (2).JPG"
+                    alt="Engraved shot glasses">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Shot Glasses
+                </h3>
+
+                <p>
+                    Small personalized glasses perfect
+                    for gifts and celebrations.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        KES —1000
+                    </span>
+
+                    <a href="product.html"
+                       class="details">
+
+                        View Details →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CUSTOM TUMBLER -->
+
+        <article class="product-card"
+                 data-category="tumbler">
+
+            <div class="product-image">
+
+                <span class="engraved-tag">
+                    Custom
+                </span>
+
+                <img
+                    src="IMG_8783.JPG"
+                    alt="Custom engraved bottle tumbler">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Custom Tumblers
+                </h3>
+
+                <p>
+                    Cut bottles transformed into unique
+                    engraved drinking tumblers.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        KES —2700
+                    </span>
+
+                    <a href="product.html"
+                       class="details">
+
+                        View Details →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- BOWLS -->
+
+        <article class="product-card"
+                 data-category="bowl">
+
+            <div class="product-image">
+
+                <span class="engraved-tag">
+                    Engraved
+                </span>
+
+                <img
+                    src="WhatsApp Image 2026-09-15 at 23.38.14.jpeg"
+                    alt="Engraved glass bowl">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Glass Bowls
+                </h3>
+
+                <p>
+                    Elegant engraved glass bowls
+                    for gifts and special occasions.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        KES —5000
+                    </span>
+
+                    <a href="product.html"
+                       class="details">
+
+                        View Details →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- JUGS -->
+
+        <article class="product-card"
+                 data-category="jug">
+
+            <div class="product-image">
+
+                <span class="engraved-tag">
+                    Engraved
+                </span>
+
+                <img
+                    src="raw4.jpeg"
+                    alt="Engraved glass jug">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Glass Jugs
+                </h3>
+
+                <p>
+                    Personalized glass jugs designed
+                    for homes, events and gifts.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        KES —3500
+                    </span>
+
+                    <a href="product.html"
+                       class="details">
+
+                        View Details →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- BOTTLES -->
+
+        <article class="product-card"
+                 data-category="bottle">
+
+            <div class="product-image">
+
+                <span class="engraved-tag">
+                    Engraved
+                </span>
+
+                <img
+                    src="engraved bottle (3).JPG"
+                    alt="Engraved glass bottle">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Engraved Glass Bottles
+                </h3>
+
+                <p>
+                    Personalized bottles created for
+                    memorable gifts and occasions.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        KES —3500
+                    </span>
+
+                    <a href="product.html"
+                       class="details">
+
+                        View Details →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- COCKTAIL -->
+
+        <article class="product-card"
+                 data-category="cocktail">
+
+            <div class="product-image">
+
+                <span class="engraved-tag">
+                    Engraved
+                </span>
+
+                <img
+                    src="glassware (6).jpeg"
+                    alt="Engraved cocktail glass">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Cocktail Glasses
+                </h3>
+
+                <p>
+                    Stylish cocktail glasses personalized
+                    with your own design.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        KES —1500
+                    </span>
+
+                    <a href="product.html"
+                       class="details">
+
+                        View Details →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- NORMAL GLASS TUMBLERS -->
+
+        <article class="product-card"
+                 data-category="glass-tumbler">
+
+            <div class="product-image">
+
+                <span class="engraved-tag">
+                    Engraved
+                </span>
+
+                <img
+                    src="glassware (13).jpeg"
+                    alt="Engraved glass tumbler">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Glass Tumblers
+                </h3>
+
+                <p>
+                    Everyday glass tumblers made
+                    special with custom engraving.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        KES —1800
+                    </span>
+
+                    <a href="product.html"
+                       class="details">
+
+                        View Details →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CUSTOM ORDER CTA
+========================= -->
+
+<section class="custom-section">
+
+    <div class="eyebrow">
+        Something Different?
+    </div>
+
+    <h2>
+        Have Your Own
+        <span>Idea?</span>
+    </h2>
+
+    <p>
+        Don't see exactly what you're looking for?
+        Bring your own glass or tell us what you'd like
+        engraved and we'll help create something unique.
+    </p>
+
+    <a href="custom.html"
+       class="custom-btn">
+
+        Start A Custom Order
+
+    </a>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+            <a href="index.html" class="footer-logo" aria-label="SammyArtz home">
+                <img src="S&A LOGO CIRCULAR.png" alt="SammyArtz">
+            </a>
+
+            <p>
+                Elegantly engraved glassware created
+                to turn ordinary moments into lasting memories.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Shop
+            </h3>
+
+            <ul>
+                <li>
+                    <a href="#">Wine Glasses</a>
+                </li>
+
+                <li>
+                    <a href="#">Whiskey Glasses</a>
+                </li>
+
+                <li>
+                    <a href="#">Champagne</a>
+                </li>
+
+                <li>
+                    <a href="#">Tumblers</a>
+                </li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Explore
+            </h3>
+
+            <ul>
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="custom.html">
+                        Custom Engraving
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#contact">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Connect
+            </h3>
+
+            <ul>
+                <li>
+                    <a href="https://wa.me/+254723178161">
+                        WhatsApp: +254 723 178 161
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.instagram.com/sammyartz35?stkn=bGNnZnpwbGJhb3Fq" target="_blank" rel="noopener">
+                        Instagram
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        TikTok
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 SammyArtz Glasses
+        </span>
+
+        <span>
+            Elegantly Engraved. Memories Elevated.
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<div class="image-lightbox" id="wineLightbox" role="dialog" aria-modal="true" aria-label="Enlarged wine glass photo">
+    <button class="lightbox-close" type="button" aria-label="Close enlarged image">×</button>
+    <img src="" alt="">
+</div>
+
+<script>
+
+    /*
+       CATEGORY FILTER
+    */
+
+    const categoryButtons =
+        document.querySelectorAll(".category");
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+
+    categoryButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const category =
+                button.dataset.category;
+
+
+            categoryButtons.forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+
+            products.forEach(product => {
+
+                const productCategory =
+                    product.dataset.category;
+
+
+                if (
+                    category === "all" ||
+                    productCategory === category
+                ) {
+
+                    product.style.display = "block";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+    });
+
+    const wineCarousel = document.querySelector(".wine-carousel");
+
+    if (wineCarousel) {
+        const winePhotos = wineCarousel.querySelectorAll(".wine-carousel-image");
+        const wineLightbox = document.querySelector("#wineLightbox");
+        const lightboxPhoto = wineLightbox.querySelector("img");
+        let currentWinePhoto = 0;
+        let swipeStartX = 0;
+
+        const showWinePhoto = (index) => {
+            currentWinePhoto = (index + winePhotos.length) % winePhotos.length;
+            winePhotos.forEach((photo, photoIndex) => {
+                photo.classList.toggle("active", photoIndex === currentWinePhoto);
+            });
+        };
+
+        wineCarousel.querySelector(".previous").addEventListener("click", () => {
+            showWinePhoto(currentWinePhoto - 1);
+        });
+
+        wineCarousel.querySelector(".next").addEventListener("click", () => {
+            showWinePhoto(currentWinePhoto + 1);
+        });
+
+        winePhotos.forEach((photo) => {
+            photo.addEventListener("click", () => {
+                lightboxPhoto.src = photo.src;
+                lightboxPhoto.alt = photo.alt;
+                wineLightbox.classList.add("open");
+            });
+        });
+
+        document.querySelectorAll(".product-image img:not(.wine-carousel-image)").forEach((photo) => {
+            photo.addEventListener("click", () => {
+                lightboxPhoto.src = photo.src;
+                lightboxPhoto.alt = photo.alt;
+                wineLightbox.classList.add("open");
+            });
+        });
+
+        const closeWineLightbox = () => wineLightbox.classList.remove("open");
+        wineLightbox.querySelector(".lightbox-close").addEventListener("click", closeWineLightbox);
+        wineLightbox.addEventListener("click", (event) => {
+            if (event.target === wineLightbox) closeWineLightbox();
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeWineLightbox();
+        });
+
+        wineCarousel.addEventListener("touchstart", (event) => {
+            swipeStartX = event.changedTouches[0].screenX;
+        }, { passive: true });
+
+        wineCarousel.addEventListener("touchend", (event) => {
+            const swipeDistance = event.changedTouches[0].screenX - swipeStartX;
+            if (Math.abs(swipeDistance) > 40) {
+                showWinePhoto(currentWinePhoto + (swipeDistance < 0 ? 1 : -1));
+            }
+        }, { passive: true });
+    }
+
+</script>
+
+</body>
+</html>
+```
+
+

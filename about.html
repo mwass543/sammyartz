@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | SammyArtz Glasses</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --green: #0F2D23;
+            --green-dark: #081C16;
+            --green-light: #173C30;
+            --gold: #D4AF37;
+            --gold-light: #E7CB70;
+            --cream: #F7F3EA;
+            --white: #ffffff;
+            --black: #171717;
+            --muted: #77736B;
+            --serif: "Cormorant Garamond", serif;
+            --sans: "Inter", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--black);
+            font-family: var(--sans);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        .navbar {
+            height: 88px;
+            background: var(--green);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            border-bottom: 1px solid rgba(212,175,55,.35);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            display: block;
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            transition: .3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: var(--gold);
+        }
+
+        .nav-order {
+            border: 1px solid var(--gold);
+            padding: 12px 20px;
+            color: var(--gold);
+        }
+
+        .nav-order:hover {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        .about-hero {
+            min-height: 76vh;
+            background:
+                linear-gradient(90deg, rgba(5,20,15,.92) 0%, rgba(5,20,15,.72) 48%, rgba(5,20,15,.18) 100%),
+                url("glassware (5).jpeg") center/cover no-repeat;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .eyebrow {
+            color: var(--gold-light);
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .about-hero h1,
+        .section-heading h2,
+        .quote-panel h2,
+        .cta h2 {
+            font-family: var(--serif);
+            font-weight: 500;
+        }
+
+        .about-hero h1 {
+            font-size: clamp(54px, 7vw, 96px);
+            line-height: .9;
+            margin-bottom: 28px;
+        }
+
+        .about-hero h1 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .about-hero p {
+            max-width: 560px;
+            color: rgba(255,255,255,.76);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 38px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 15px 25px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: .3s ease;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-light);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        .story-section,
+        .craft-section,
+        .values-section,
+        .cta {
+            padding: 95px 7%;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .section-heading {
+            max-width: 640px;
+            margin-bottom: 34px;
+        }
+
+        .section-heading h2 {
+            color: var(--green);
+            font-size: clamp(38px, 5vw, 66px);
+            line-height: .95;
+            margin-bottom: 22px;
+        }
+
+        .section-heading h2 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .section-heading p,
+        .story-copy p,
+        .craft-card p,
+        .value-card p,
+        .quote-panel p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .story-copy p + p {
+            margin-top: 18px;
+        }
+
+        .story-media {
+            position: relative;
+        }
+
+        .story-media img {
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border: 1px solid rgba(15,45,35,.12);
+        }
+
+        .story-badge {
+            position: absolute;
+            left: -28px;
+            bottom: 34px;
+            width: min(220px, 70%);
+            background: var(--green);
+            color: var(--white);
+            padding: 24px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .story-badge strong {
+            display: block;
+            color: var(--gold);
+            font-family: var(--serif);
+            font-size: 34px;
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .story-badge span {
+            color: rgba(255,255,255,.68);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            line-height: 1.7;
+            text-transform: uppercase;
+        }
+
+        .craft-section {
+            background: var(--white);
+        }
+
+        .craft-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(15,45,35,.14);
+            border: 1px solid rgba(15,45,35,.14);
+        }
+
+        .craft-card {
+            background: var(--white);
+            min-height: 265px;
+            padding: 36px 32px;
+        }
+
+        .craft-card span {
+            display: block;
+            color: var(--gold);
+            font-family: var(--serif);
+            font-size: 40px;
+            margin-bottom: 24px;
+        }
+
+        .craft-card h3,
+        .value-card h3,
+        footer h3 {
+            color: var(--green);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .craft-card h3 {
+            margin-bottom: 16px;
+        }
+
+        .quote-panel {
+            background: var(--green);
+            color: var(--white);
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            align-items: center;
+        }
+
+        .quote-panel img {
+            height: 100%;
+            min-height: 440px;
+            object-fit: cover;
+        }
+
+        .quote-copy {
+            padding: 70px 8%;
+        }
+
+        .quote-panel h2 {
+            color: var(--gold);
+            font-size: clamp(36px, 5vw, 62px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .quote-panel p {
+            color: rgba(255,255,255,.7);
+            max-width: 560px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .value-card {
+            border-top: 1px solid rgba(15,45,35,.22);
+            padding-top: 24px;
+        }
+
+        .value-card h3 {
+            margin-bottom: 14px;
+        }
+
+        .cta {
+            background: var(--green-dark);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: var(--gold);
+            font-size: clamp(38px, 6vw, 72px);
+            line-height: .95;
+            margin-bottom: 22px;
+        }
+
+        .cta p {
+            max-width: 560px;
+            margin: 0 auto 35px;
+            color: rgba(255,255,255,.68);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        footer {
+            background: var(--green-dark);
+            color: white;
+            padding: 65px 7% 25px;
+            border-top: 1px solid rgba(212,175,55,.22);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 50px;
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            color: rgba(255,255,255,.5);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        footer h3 {
+            color: var(--gold);
+            margin-bottom: 18px;
+        }
+
+        footer li {
+            list-style: none;
+            margin-bottom: 12px;
+            font-size: 11px;
+            color: rgba(255,255,255,.5);
+        }
+
+        footer li:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.08);
+            padding-top: 22px;
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255,255,255,.3);
+            font-size: 9px;
+        }
+
+        .footer-logo {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            width: 110px;
+            height: auto;
+        }
+
+        @media(max-width: 1000px) {
+            .nav-links {
+                display: none;
+            }
+
+            .story-grid,
+            .quote-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .craft-grid,
+            .values-grid,
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .quote-panel img {
+                min-height: 360px;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .navbar {
+                height: 75px;
+                padding: 0 5%;
+            }
+
+            .logo-image {
+                width: 52px;
+                height: 52px;
+            }
+
+            .about-hero {
+                min-height: 68vh;
+                padding: 64px 6%;
+            }
+
+            .story-section,
+            .craft-section,
+            .values-section,
+            .cta {
+                padding: 68px 6%;
+            }
+
+            .story-grid {
+                gap: 42px;
+            }
+
+            .story-badge {
+                position: static;
+                width: 100%;
+                margin-top: 14px;
+            }
+
+            .craft-grid,
+            .values-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .craft-card {
+                min-height: auto;
+            }
+
+            .quote-copy {
+                padding: 54px 6%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo" aria-label="SammyArtz home">
+        <img src="S&A LOGO CIRCULAR.png" alt="SammyArtz" class="logo-image">
+    </a>
+
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="custom.html">Custom Engraving</a>
+        <a href="about.html" class="active">About</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="https://wa.me/+254723178161" class="nav-order">Order</a>
+    </nav>
+</header>
+
+<main>
+    <section class="about-hero">
+        <div class="hero-content">
+            <div class="eyebrow">Our Story</div>
+            <h1>Glassware made <span>personal.</span></h1>
+            <p>
+                SammyArtz Glasses creates engraved pieces for weddings, birthdays,
+                anniversaries, businesses, and quiet everyday moments worth keeping.
+                Every glass is treated like a memory before it becomes a gift.
+            </p>
+            <div class="btn-row">
+                <a href="shop.html" class="btn btn-gold">View Collection</a>
+                <a href="custom.html" class="btn btn-outline">Custom Order</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="story-grid">
+            <div>
+                <div class="section-heading">
+                    <div class="eyebrow">SammyArtz Glasses</div>
+                    <h2>Designed for the moments people <span>remember.</span></h2>
+                </div>
+
+                <div class="story-copy">
+                    <p>
+                        We believe a beautiful glass should do more than sit on a shelf.
+                        It should hold a name, a date, a message, a logo, or a feeling
+                        that makes the person receiving it pause for a second longer.
+                    </p>
+                    <p>
+                        From elegant wine glasses to whiskey sets and celebration pieces,
+                        our work blends clean design with careful engraving so each item
+                        feels refined, intentional, and ready to gift.
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-media">
+                <img src="glassware (2).jpeg" alt="Engraved glassware by SammyArtz">
+                <div class="story-badge">
+                    <strong>S&A</strong>
+                    <span>Elegantly engraved glassware for modern gifting.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="craft-section">
+        <div class="section-heading">
+            <div class="eyebrow">Our Craft</div>
+            <h2>Small details. <span>Lasting impressions.</span></h2>
+            <p>
+                Every order is handled with attention to balance, clarity, spacing,
+                and finish so the final piece feels premium from the first glance.
+            </p>
+        </div>
+
+        <div class="craft-grid">
+            <article class="craft-card">
+                <span>01</span>
+                <h3>Thoughtful Design</h3>
+                <p>
+                    Names, dates, initials, and logos are arranged to suit the shape
+                    of each glass and the mood of the occasion.
+                </p>
+            </article>
+
+            <article class="craft-card">
+                <span>02</span>
+                <h3>Clean Engraving</h3>
+                <p>
+                    We focus on crisp, elegant engraving that keeps the glass refined
+                    while making the personalization feel special.
+                </p>
+            </article>
+
+            <article class="craft-card">
+                <span>03</span>
+                <h3>Gift Ready</h3>
+                <p>
+                    Each piece is prepared with care so it arrives ready for the event,
+                    the client, the couple, or the person you are celebrating.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="quote-panel">
+        <img src="glassware (10).jpeg" alt="Personalized engraved glass detail">
+        <div class="quote-copy">
+            <div class="eyebrow">What Guides Us</div>
+            <h2>Elegant does not have to feel distant.</h2>
+            <p>
+                Our style is polished, but the heart of the work is personal. Whether
+                the order is one glass or a full event set, the goal is the same: create
+                something that feels meaningful, useful, and beautifully made.
+            </p>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="section-heading">
+            <div class="eyebrow">Why Choose Us</div>
+            <h2>Made with care from first message to final <span>finish.</span></h2>
+        </div>
+
+        <div class="values-grid">
+            <article class="value-card">
+                <h3>Personal Service</h3>
+                <p>Clear communication and helpful guidance before your piece is made.</p>
+            </article>
+
+            <article class="value-card">
+                <h3>Refined Style</h3>
+                <p>Designs that feel clean, premium, and easy to love.</p>
+            </article>
+
+            <article class="value-card">
+                <h3>Occasion Ready</h3>
+                <p>Perfect for weddings, birthdays, anniversaries, teams, and brands.</p>
+            </article>
+
+            <article class="value-card">
+                <h3>Memorable Gifts</h3>
+                <p>Pieces made to be used, kept, and remembered.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Have a glass in mind?</h2>
+        <p>
+            Send the name, message, date, logo, or idea you want engraved and we will
+            help shape it into a piece that feels right for the moment.
+        </p>
+        <a href="https://wa.me/+254723178161" class="btn btn-gold">Order on WhatsApp</a>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <a href="index.html" class="footer-logo" aria-label="SammyArtz home">
+                <img src="S&A LOGO CIRCULAR.png" alt="SammyArtz">
+            </a>
+            <p>
+                Elegantly engraved glassware created to turn ordinary moments into
+                lasting memories.
+            </p>
+        </div>
+
+        <div>
+            <h3>Shop</h3>
+            <ul>
+                <li><a href="shop.html">Wine Glasses</a></li>
+                <li><a href="shop.html">Whiskey Glasses</a></li>
+                <li><a href="shop.html">Champagne</a></li>
+                <li><a href="shop.html">Tumblers</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Explore</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="custom.html">Custom Engraving</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Connect</h3>
+            <ul>
+                <li><a href="https://wa.me/+254723178161">WhatsApp: +254 723 178 161</a></li>
+                <li><a href="https://www.instagram.com/sammyartz35?stkn=bGNnZnpwbGJhb3Fq" target="_blank" rel="noopener">Instagram</a></li>
+                <li>TikTok</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 SammyArtz Glasses</span>
+        <span>Elegantly Engraved. Memories Elevated.</span>
+    </div>
+</footer>
+
+</body>
+</html>
+
+

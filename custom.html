@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Custom Engraving | SammyArtz Glasses</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --green: #0F2D23;
+            --green-dark: #081C16;
+            --green-light: #173C30;
+            --gold: #D4AF37;
+            --gold-light: #E7CB70;
+            --cream: #F7F3EA;
+            --white: #FFFFFF;
+            --black: #171717;
+            --muted: #77736B;
+            --border: rgba(15,45,35,.15);
+
+            --serif: "Cormorant Garamond", serif;
+            --sans: "Inter", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--black);
+            font-family: var(--sans);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+        /* =====================================
+           NAVIGATION
+        ===================================== */
+
+        .navbar {
+            height: 88px;
+            padding: 0 6%;
+
+            background: var(--green);
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid rgba(212,175,55,.35);
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--gold);
+            font-family: var(--serif);
+            font-size: 17px;
+        }
+
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 20px;
+            letter-spacing: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            transition: .3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: var(--gold);
+        }
+
+        .nav-order {
+            padding: 12px 20px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .nav-order:hover {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        /* =====================================
+           HERO
+        ===================================== */
+
+        .hero {
+            min-height: 72vh;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(8,28,22,.94),
+                    rgba(8,28,22,.70),
+                    rgba(8,28,22,.35)
+                ),
+                url("https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=2000&q=85")
+                center/cover no-repeat;
+
+            display: flex;
+            align-items: center;
+
+            padding: 90px 8%;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(60px, 8vw, 105px);
+            font-weight: 500;
+            line-height: .82;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero p {
+            max-width: 560px;
+            color: rgba(255,255,255,.72);
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 38px;
+        }
+
+        .hero-button {
+            display: inline-block;
+
+            padding: 15px 28px;
+
+            background: var(--gold);
+            color: var(--green);
+
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            transition: .3s ease;
+        }
+
+        .hero-button:hover {
+            background: var(--gold-light);
+        }
+
+        /* =====================================
+           HOW IT WORKS
+        ===================================== */
+
+        .section {
+            padding: 100px 7%;
+        }
+
+        .section-heading {
+            max-width: 650px;
+            margin: 0 auto 65px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            font-family: var(--serif);
+            font-size: clamp(45px, 5vw, 65px);
+            color: var(--green);
+            font-weight: 500;
+            line-height: .95;
+            margin-bottom: 18px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .steps {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .step {
+            padding: 40px 30px;
+
+            border-right: 1px solid var(--border);
+
+            text-align: center;
+        }
+
+        .step:last-child {
+            border-right: none;
+        }
+
+        .step-number {
+            width: 42px;
+            height: 42px;
+
+            margin: 0 auto 20px;
+
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--gold);
+
+            font-family: var(--serif);
+            font-size: 18px;
+        }
+
+        .step h3 {
+            font-family: var(--serif);
+            color: var(--green);
+            font-size: 25px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.7;
+        }
+
+        /* =====================================
+           BRING YOUR OWN GLASS
+        ===================================== */
+
+        .bring {
+            background: var(--green);
+            color: white;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            min-height: 650px;
+        }
+
+        .bring-image {
+            background:
+                url("https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1400&q=85")
+                center/cover no-repeat;
+        }
+
+        .bring-content {
+            padding: 90px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .bring-inner {
+            max-width: 530px;
+        }
+
+        .bring h2 {
+            font-family: var(--serif);
+            font-size: clamp(50px, 5vw, 75px);
+            font-weight: 500;
+            line-height: .88;
+            margin-bottom: 25px;
+        }
+
+        .bring h2 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .bring p {
+            color: rgba(255,255,255,.65);
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .bring-list {
+            list-style: none;
+        }
+
+        .bring-list li {
+            padding: 13px 0;
+            border-bottom: 1px solid rgba(212,175,55,.25);
+
+            color: rgba(255,255,255,.75);
+
+            font-size: 11px;
+        }
+
+        .bring-list li::before {
+            content: "✦";
+            color: var(--gold);
+            margin-right: 12px;
+        }
+
+        /* =====================================
+           WHAT WE CAN ENGRAVE
+        ===================================== */
+
+        .engraving-types {
+            background: #eee9de;
+        }
+
+        .engraving-grid {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .engraving-card {
+            background: var(--cream);
+
+            padding: 40px 30px;
+
+            border: 1px solid rgba(15,45,35,.08);
+
+            transition: .3s ease;
+        }
+
+        .engraving-card:hover {
+            border-color: rgba(212,175,55,.7);
+            transform: translateY(-5px);
+        }
+
+        .engraving-card span {
+            color: var(--gold);
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        .engraving-card h3 {
+            font-family: var(--serif);
+            color: var(--green);
+            font-size: 29px;
+            font-weight: 500;
+            margin: 12px 0 8px;
+        }
+
+        .engraving-card p {
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.7;
+        }
+
+        /* =====================================
+           CUSTOM ORDER FORM
+        ===================================== */
+
+        .order-section {
+            padding: 110px 7%;
+        }
+
+        .order-container {
+            max-width: 1050px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+
+            border: 1px solid rgba(15,45,35,.12);
+
+            background: #fffdf8;
+        }
+
+        .order-intro {
+            background: var(--green);
+            color: white;
+
+            padding: 60px;
+        }
+
+        .order-intro h2 {
+            font-family: var(--serif);
+            font-size: 55px;
+            font-weight: 500;
+            line-height: .9;
+            margin-bottom: 25px;
+        }
+
+        .order-intro h2 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .order-intro p {
+            color: rgba(255,255,255,.62);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .order-intro-note {
+            margin-top: 45px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(212,175,55,.3);
+
+            color: var(--gold);
+
+            font-size: 10px;
+            letter-spacing: 1px;
+            line-height: 1.7;
+        }
+
+        .order-form {
+            padding: 60px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: var(--green);
+
+            font-size: 9px;
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border: 1px solid rgba(15,45,35,.18);
+
+            background: var(--cream);
+
+            color: var(--black);
+
+            outline: none;
+
+            font-size: 12px;
+
+            transition: .3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--gold);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+
+            border: none;
+
+            padding: 17px;
+
+            background: var(--green);
+
+            color: var(--gold);
+
+            font-size: 10px;
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: .3s ease;
+        }
+
+        .submit-button:hover {
+            background: var(--green-light);
+        }
+
+        .form-note {
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 9px;
+
+            margin-top: 13px;
+
+            line-height: 1.6;
+        }
+
+        /* =====================================
+           CTA
+        ===================================== */
+
+        .final-cta {
+            background: var(--green-dark);
+
+            color: white;
+
+            text-align: center;
+
+            padding: 110px 7%;
+        }
+
+        .final-cta h2 {
+            font-family: var(--serif);
+            font-size: clamp(50px, 6vw, 80px);
+            font-weight: 500;
+            line-height: .9;
+            margin-bottom: 20px;
+        }
+
+        .final-cta h2 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .final-cta p {
+            max-width: 550px;
+            margin: 0 auto 35px;
+
+            color: rgba(255,255,255,.6);
+
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            background: var(--gold);
+            color: var(--green);
+
+            padding: 15px 30px;
+
+            font-size: 10px;
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        footer {
+            background: var(--green-dark);
+            color: white;
+
+            padding: 60px 7% 25px;
+
+            border-top: 1px solid rgba(212,175,55,.25);
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+
+            padding-bottom: 50px;
+        }
+
+        .footer-brand h2 {
+            font-family: var(--serif);
+            color: var(--gold);
+            font-size: 30px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            color: rgba(255,255,255,.45);
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        footer h3 {
+            color: var(--gold);
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            color: rgba(255,255,255,.45);
+            font-size: 11px;
+            margin-bottom: 11px;
+        }
+
+        footer li:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(255,255,255,.07);
+
+            display: flex;
+            justify-content: space-between;
+
+            color: rgba(255,255,255,.25);
+
+            font-size: 9px;
+        }
+
+        /* =====================================
+           RESPONSIVE
+        ===================================== */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .step:nth-child(2) {
+                border-right: none;
+            }
+
+            .bring {
+                grid-template-columns: 1fr;
+            }
+
+            .bring-image {
+                min-height: 450px;
+            }
+
+            .engraving-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .order-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .navbar {
+                height: 75px;
+                padding: 0 5%;
+            }
+
+            .logo-mark {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 16px;
+                letter-spacing: 2px;
+            }
+
+            .hero {
+                min-height: 70vh;
+                padding: 70px 6%;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            .section {
+                padding: 75px 5%;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .step:last-child {
+                border-bottom: none;
+            }
+
+            .bring-content {
+                padding: 65px 7%;
+            }
+
+            .engraving-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .order-section {
+                padding: 70px 5%;
+            }
+
+            .order-intro,
+            .order-form {
+                padding: 40px 25px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .logo-image {
+            display: block;
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+        }
+
+        .footer-logo {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            display: block;
+            width: 110px;
+            height: auto;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVIGATION
+===================================== -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo" aria-label="SammyArtz home">
+
+        <img src="S&A LOGO CIRCULAR.png" alt="SammyArtz" class="logo-image">
+
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="shop.html">
+            Shop
+        </a>
+
+        <a href="custom.html" class="active">
+            Custom Engraving
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="index.html#contact">
+            Contact
+        </a>
+
+        <a href="https://wa.me/+254723178161"
+           class="nav-order">
+
+            Order
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            Custom Engraving
+        </div>
+
+        <h1>
+            Your Glass.
+            <br>
+            <span>Your Story.</span>
+        </h1>
+
+        <p>
+            Turn an ordinary glass into something personal.
+            Choose one of our pieces or bring your own glass
+            and let SammyArtz create an engraving made
+            especially for you.
+        </p>
+
+        <a href="#custom-order"
+           class="hero-button">
+
+            Start Your Custom Order
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     HOW IT WORKS
+===================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            The Process
+        </div>
+
+        <h2>
+            From Idea To Engraving
+        </h2>
+
+        <p>
+            Creating your personalized glassware is simple.
+            Tell us what you have in mind and we'll take
+            care of the craft.
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>
+                Choose
+            </h3>
+
+            <p>
+                Select one of our glassware pieces
+                or bring your own.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>
+                Customize
+            </h3>
+
+            <p>
+                Tell us the name, message, design
+                or artwork you'd like.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>
+                We Engrave
+            </h3>
+
+            <p>
+                Your chosen design is carefully
+                engraved onto the glass.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <h3>
+                Collect
+            </h3>
+
+            <p>
+                Your personalized piece is ready
+                for its next special moment.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     BRING YOUR OWN GLASS
+===================================== -->
+
+<section class="bring">
+
+    <div class="bring-image"></div>
+
+
+    <div class="bring-content">
+
+        <div class="bring-inner">
+
+            <div class="eyebrow">
+                Something Personal
+            </div>
+
+            <h2>
+                Bring Your
+                <span>Own Glass.</span>
+            </h2>
+
+            <p>
+                Already have a glass, bottle, tumbler or
+                special piece that means something to you?
+
+                Bring it to SammyArtz and we'll transform
+                it with a custom engraving.
+            </p>
+
+
+            <ul class="bring-list">
+
+                <li>
+                    Wine & champagne glasses
+                </li>
+
+                <li>
+                    Whiskey & drinking glasses
+                </li>
+
+                <li>
+                    Glass bottles
+                </li>
+
+                <li>
+                    Tumblers
+                </li>
+
+                <li>
+                    Other suitable glass pieces
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     WHAT WE CAN ENGRAVE
+===================================== -->
+
+<section class="section engraving-types">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            Make It Yours
+        </div>
+
+        <h2>
+            What Can We Engrave?
+        </h2>
+
+        <p>
+            Your imagination is the starting point.
+            Share your idea and we'll work with you
+            to create the right design.
+        </p>
+
+    </div>
+
+
+    <div class="engraving-grid">
+
+
+        <div class="engraving-card">
+
+            <span>
+                01
+            </span>
+
+            <h3>
+                Names & Initials
+            </h3>
+
+            <p>
+                Personalize your glass with a name,
+                initials or monogram.
+            </p>
+
+        </div>
+
+
+        <div class="engraving-card">
+
+            <span>
+                02
+            </span>
+
+            <h3>
+                Dates
+            </h3>
+
+            <p>
+                Weddings, anniversaries, birthdays
+                and other meaningful dates.
+            </p>
+
+        </div>
+
+
+        <div class="engraving-card">
+
+            <span>
+                03
+            </span>
+
+            <h3>
+                Messages
+            </h3>
+
+            <p>
+                Add a short quote, message or
+                personal dedication.
+            </p>
+
+        </div>
+
+
+        <div class="engraving-card">
+
+            <span>
+                04
+            </span>
+
+            <h3>
+                Logos
+            </h3>
+
+            <p>
+                Create personalized corporate gifts
+                featuring a company logo.
+            </p>
+
+        </div>
+
+
+        <div class="engraving-card">
+
+            <span>
+                05
+            </span>
+
+            <h3>
+                Artwork
+            </h3>
+
+            <p>
+                Bring your design or reference image
+                and we'll discuss what's possible.
+            </p>
+
+        </div>
+
+
+        <div class="engraving-card">
+
+            <span>
+                06
+            </span>
+
+            <h3>
+                Custom Ideas
+            </h3>
+
+            <p>
+                Have something completely different
+                in mind? Tell us about it.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CUSTOM ORDER FORM
+===================================== -->
+
+<section class="order-section"
+         id="custom-order">
+
+    <div class="order-container">
+
+
+        <div class="order-intro">
+
+            <div class="eyebrow">
+                Start Your Order
+            </div>
+
+            <h2>
+                Let's Create
+                <span>Something.</span>
+            </h2>
+
+            <p>
+                Give us a few details about your
+                engraving request. Once you submit
+                the form, we'll open WhatsApp with
+                your order details ready to send.
+            </p>
+
+            <div class="order-intro-note">
+
+                CUSTOM ENGRAVING
+                <br>
+                PERSONALIZED GLASSWARE
+                <br>
+                HANDCRAFTED WITH CARE
+
+            </div>
+
+        </div>
+
+
+        <form class="order-form"
+              id="engravingForm">
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="07XX XXX XXX"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="glass">
+                        Glass Type
+                    </label>
+
+                    <select id="glass" required>
+
+                        <option value="">
+                            Select glass type
+                        </option>
+
+                        <option>
+                            Wine Glass
+                        </option>
+
+                        <option>
+                            Whiskey Glass
+                        </option>
+
+                        <option>
+                            Champagne Glass
+                        </option>
+
+                        <option>
+                            Shot Glass
+                        </option>
+
+                        <option>
+                            Custom Tumbler
+                        </option>
+
+                        <option>
+                            Glass Bowl
+                        </option>
+
+                        <option>
+                            Glass Jug
+                        </option>
+
+                        <option>
+                            Glass Bottle
+                        </option>
+
+                        <option>
+                            Cocktail Glass
+                        </option>
+
+                        <option>
+                            Glass Tumbler
+                        </option>
+
+                        <option>
+                            My Own Glass
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="quantity">
+                        Quantity
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        min="1"
+                        value="1"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="engraving">
+                    What Would You Like Engraved?
+                </label>
+
+                <textarea
+                    id="engraving"
+                    placeholder="Example: John & Mary — 14.02.2027"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="occasion">
+                    Occasion
+                </label>
+
+                <select id="occasion">
+
+                    <option value="">
+                        Select an occasion
+                    </option>
+
+                    <option>
+                        Wedding
+                    </option>
+
+                    <option>
+                        Birthday
+                    </option>
+
+                    <option>
+                        Anniversary
+                    </option>
+
+                    <option>
+                        Corporate Gift
+                    </option>
+
+                    <option>
+                        Graduation
+                    </option>
+
+                    <option>
+                        Personal
+                    </option>
+
+                    <option>
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="notes">
+                    Additional Details
+                </label>
+
+                <textarea
+                    id="notes"
+                    placeholder="Tell us anything else we should know..."
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-button">
+
+                Continue To WhatsApp →
+
+            </button>
+
+
+            <div class="form-note">
+
+                Your request will open in WhatsApp so you
+                can discuss the design and pricing with us.
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FINAL CTA
+===================================== -->
+
+<section class="final-cta">
+
+    <div class="eyebrow">
+        SammyArtz Glasses
+    </div>
+
+    <h2>
+        Don't Just Give A Gift.
+        <br>
+        <span>Make It Personal.</span>
+    </h2>
+
+    <p>
+        A name. A date. A message. A memory.
+        Turn it into something they can keep.
+    </p>
+
+    <a href="shop.html"
+       class="cta-button">
+
+        Explore Our Glassware
+
+    </a>
+
+</section>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    <div class="footer-top">
+
+
+        <div class="footer-brand">
+
+            <a href="index.html" class="footer-logo" aria-label="SammyArtz home">
+                <img src="S&A LOGO CIRCULAR.png" alt="SammyArtz">
+            </a>
+
+            <p>
+                Elegantly engraved glassware created
+                to turn ordinary moments into lasting memories.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Shop
+            </h3>
+
+            <ul>
+
+                <li>
+                    <a href="shop.html">
+                        Wine Glasses
+                    </a>
+                </li>
+
+                <li>
+                    <a href="shop.html">
+                        Whiskey Glasses
+                    </a>
+                </li>
+
+                <li>
+                    <a href="shop.html">
+                        Champagne Glasses
+                    </a>
+                </li>
+
+                <li>
+                    <a href="shop.html">
+                        Tumblers
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Explore
+            </h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="shop.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li>
+                    <a href="custom.html">
+                        Custom Engraving
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Connect
+            </h3>
+
+            <ul>
+                <li>
+                    <a href="https://wa.me/+254723178161">
+                        WhatsApp: +254 723 178 161
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.instagram.com/sammyartz35?stkn=bGNnZnpwbGJhb3Fq" target="_blank" rel="noopener">
+                        Instagram
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        TikTok
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 SammyArtz Glasses
+        </span>
+
+        <span>
+            Elegantly Engraved. Memories Elevated.
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================
+     WHATSAPP FORM
+===================================== -->
+
+<script>
+
+    const form =
+        document.getElementById("engravingForm");
+
+
+    form.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        /*
+            REPLACE THIS NUMBER
+            WITH THE CLIENT'S REAL
+            WHATSAPP NUMBER.
+
+            Format:
+            Country code + number
+            without + or spaces.
+
+            Example:
+            254712345678
+        */
+
+        const whatsappNumber =
+    "254723178161";
+
+
+        const name =
+            document.getElementById("name").value;
+
+        const phone =
+            document.getElementById("phone").value;
+
+        const glass =
+            document.getElementById("glass").value;
+
+        const quantity =
+            document.getElementById("quantity").value;
+
+        const engraving =
+            document.getElementById("engraving").value;
+
+        const occasion =
+            document.getElementById("occasion").value;
+
+        const notes =
+            document.getElementById("notes").value;
+
+
+        const message =
+
+`Hello SammyArtz Glasses 👋
+
+I'd like to make a custom engraving order.
+
+*Customer Details*
+Name: ${name}
+Phone: ${phone}
+
+*Order Details*
+Glass Type: ${glass}
+Quantity: ${quantity}
+
+*Engraving Request*
+${engraving}
+
+*Occasion*
+${occasion || "Not specified"}
+
+*Additional Details*
+${notes || "None"}
+
+I'd like to discuss the design and pricing. Thank you!`;
+
+
+        const whatsappURL =
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
+    });
+
+</script>
+
+
+</body>
+</html>
+```
+
+
